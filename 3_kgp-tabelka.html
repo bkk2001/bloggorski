@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8"  />
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>KGP</title>
+
+
+
+	<style>
+		h1, h2 {
+			color: #5c68ea;
+			text-align: center;
+		}
+		/*h2{
+			text-align:center;
+		}*/
+
+
+	</style>
+	<link href="styl_uklad.css" type="text/css" rel="stylesheet" />
+	<link href="menu.css" type="text/css" rel="stylesheet" />
+	<script src="tabelka_JS.js"></script>
+
+</head>
+<body>
+    <header>
+
+        <canvas id="plotno" width="1024" height="150"></canvas>
+
+        <script>
+            var canvas, context;
+            window.onload = function () {
+                canvas = document.getElementById("plotno");
+                context = canvas.getContext("2d");
+				if (screen.width < 480) {
+					this.context.translate(-235, 0);
+					//słońce lewe
+					context.beginPath();
+					context.arc(285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(281, 46);
+					context.lineTo(278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(285, 45);
+					context.lineTo(285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(289, 48);
+					context.lineTo(292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+					//trójkąt-lewy
+					context.beginPath();
+					context.moveTo(300, 130);
+					context.lineTo(240, 130);
+					context.lineTo(270, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(270, 130);
+					context.lineTo(330, 130);
+					context.lineTo(300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg-lewy
+					context.beginPath();
+					context.moveTo(260, 61);
+					context.lineTo(270, 28);
+					context.lineTo(279, 61);
+					context.lineTo(275, 67);
+					context.lineTo(269, 61);
+					context.lineTo(264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(260 + 30, 61);
+					context.lineTo(270 + 30, 28);
+					context.lineTo(279 + 30, 61);
+					context.lineTo(275 + 30, 67);
+					context.lineTo(269 + 30, 61);
+					context.lineTo(264 + 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+					//tekst
+					context.font = "70px Arial";
+					context.textAlign = "center";
+					context.lineWidth = 3;
+					context.strokeText("Blog górski", canvas.width / 2, 100);
+				}
+				else {
+					//słońce lewe
+					context.beginPath();
+					context.arc(285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(281, 46);
+					context.lineTo(278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(285, 45);
+					context.lineTo(285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(289, 48);
+					context.lineTo(292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+
+					//słońce prawe
+					context.beginPath();
+					context.arc(1024 - 285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 281, 46);
+					context.lineTo(1024 - 278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(1024 - 285, 45);
+					context.lineTo(1024 - 285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(1024 - 289, 48);
+					context.lineTo(1024 - 292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+					//trójkąt-lewy
+					context.beginPath();
+					context.moveTo(300, 130);
+					context.lineTo(240, 130);
+					context.lineTo(270, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(270, 130);
+					context.lineTo(330, 130);
+					context.lineTo(300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg-lewy
+					context.beginPath();
+					context.moveTo(260, 61);
+					context.lineTo(270, 28);
+					context.lineTo(279, 61);
+					context.lineTo(275, 67);
+					context.lineTo(269, 61);
+					context.lineTo(264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(260 + 30, 61);
+					context.lineTo(270 + 30, 28);
+					context.lineTo(279 + 30, 61);
+					context.lineTo(275 + 30, 67);
+					context.lineTo(269 + 30, 61);
+					context.lineTo(264 + 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					//trójkąt-prawy
+					context.beginPath();
+					context.moveTo(724, 130);
+					context.lineTo(784, 130);
+					context.lineTo(754, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 270, 130);
+					context.lineTo(1024 - 330, 130);
+					context.lineTo(1024 - 300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg- prawy
+					context.beginPath();
+					context.moveTo(1024 - 260, 61);
+					context.lineTo(1024 - 270, 28);
+					context.lineTo(1024 - 279, 61);
+					context.lineTo(1024 - 275, 67);
+					context.lineTo(1024 - 269, 61);
+					context.lineTo(1024 - 264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 260 - 30, 61);
+					context.lineTo(1024 - 270 - 30, 28);
+					context.lineTo(1024 - 279 - 30, 61);
+					context.lineTo(1024 - 275 - 30, 67);
+					context.lineTo(1024 - 269 - 30, 61);
+					context.lineTo(1024 - 264 - 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					//tekst
+					context.font = "70px Arial";
+					context.textAlign = "center";
+					context.lineWidth = 3;
+					context.strokeText("Blog górski", canvas.width / 2, 100);
+				}
+			
+            }
+        </script>
+    </header>
+
+    <nav>
+        <h2 style="color: blue; background-color:lightgray"> Menu </h2>
+		
+			
+		<ul>
+				<li><a href="1_Index.html" target="_self">Strona główna</a></li>
+				<li><a href="2_Gory_Polski.html" target="_self">Polskie góry</a></li>
+				<li><a href="3_kgp-tabelka.html" target="_self">Korona Gór Polski</a></li>
+				<li><a href="4_Gory_Europy.html" target="_self">Europejskie góry</a></li>
+				<li><a href="5_Gory_Swiata.html" target="_self">Góry Świata</a></li>
+				<li><a href="6_Kontakt.html" target="_self">Formularz kontaktowy</a></li>
+				<li><a href="7_schroniska.html" target="_self">Schroniska</a></li>
+				<li><a href="8_szlaki.html" target="_self">Szlaki długodystansowe</a></li>
+				<li><a href="9_kalkulator.html" target="_self">Kalkulator</a></li>
+				<li><a href="910_ciekawostki.html" target="_self">Górskie ciekawostki</a></li>
+		</ul>
+		
+    </nav>
+    <article>
+        <h2 style="color:darkred; background-color:darkcyan">Korona Gór Polskich</h2>
+		<p>
+			Korona Gór Polski to zbiór 28 szczytów wszystkich pasm Polski.
+			W założeniu miały to być najwyższe szczyty z każdego pasma,
+			w praktyce jednak są to najwyższe szczyty, na które prowadziły szlaki turystyczne w momencie ustanawiania Korony.
+			Dobrym tego przykładem będą Góry Bystrzyckie:
+			<br /> w Koronie jest Jagodna (977m n.p.m.), a Jagodna Północna jest wyższa (985m n.p.m.) ale nie prowadzi na nią szlak.
+			<figure id="rys_1">
+
+				<div style="text-align: center">
+					<img src="g.bystrzyckie.jpg" alt="brak danych" />
+					<br />Porównanie Jagondej i Jagodej Północnej
+				</div>
+
+
+			</figure>
+
+			<div> 
+				<h2>Tabela szczytów</h2>
+				<input type="button"  value="załaduj" onclick="wyswietlTab(tab_szczytow)" style="margin-left:5px"/>
+				<br />
+				<table >
+					<tr>
+						<th>Lp.</th>
+						<th>Szczyt</th>
+						<th>Wysokość<br />m n.p.m.</th>
+						<th>Pasmo</th>
+
+					</tr>
+					<tbody id="daneP"></tbody>
+
+				</table>
+
+			</div>
+			<div id="sfch7jphjk93u1a4hb6lfxbu57lub6bc8bc"></div>
+			<script  src="https://counter9.stat.ovh/private/counter.js?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc&down=async" async></script>
+			<noscript>
+				<a href="https://www.freecounterstat.com" title="free website hit counter">
+					<img src="https://counter9.stat.ovh/private/freecounterstat.php?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc"  title="free website hit counter" alt="free website hit counter">
+				</a>
+			</noscript>
+</article>
+
+    <aside>   </aside>
+    <footer> <iframe src="KontrolkiJS.html"></iframe></footer>
+
+
+</body>
+</html>

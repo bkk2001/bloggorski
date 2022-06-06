@@ -1,0 +1,391 @@
+﻿<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Góry na świecie</title>
+
+	<style>
+		h1, h2 {
+			color: #5c68ea;
+			text-align: center;
+		}
+		/*h2{
+			text-align:center;
+		}*/
+	</style>
+	<link href="styl_uklad.css" type="text/css" rel="stylesheet" />
+	<link href="menu.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+	<header>
+
+		<canvas id="plotno" width="1024" height="150"></canvas>
+
+		<script>
+			var canvas, context;
+			window.onload = function () {
+				canvas = document.getElementById("plotno");
+				context = canvas.getContext("2d");
+				if (screen.width < 480) {
+					this.context.translate(-235, 0);
+					//słońce lewe
+					context.beginPath();
+					context.arc(285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(281, 46);
+					context.lineTo(278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(285, 45);
+					context.lineTo(285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(289, 48);
+					context.lineTo(292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+					//trójkąt-lewy
+					context.beginPath();
+					context.moveTo(300, 130);
+					context.lineTo(240, 130);
+					context.lineTo(270, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(270, 130);
+					context.lineTo(330, 130);
+					context.lineTo(300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg-lewy
+					context.beginPath();
+					context.moveTo(260, 61);
+					context.lineTo(270, 28);
+					context.lineTo(279, 61);
+					context.lineTo(275, 67);
+					context.lineTo(269, 61);
+					context.lineTo(264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(260 + 30, 61);
+					context.lineTo(270 + 30, 28);
+					context.lineTo(279 + 30, 61);
+					context.lineTo(275 + 30, 67);
+					context.lineTo(269 + 30, 61);
+					context.lineTo(264 + 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+					//tekst
+					context.font = "70px Arial";
+					context.textAlign = "center";
+					context.lineWidth = 3;
+					context.strokeText("Blog górski", canvas.width / 2, 100);
+				}
+				else {
+					//słońce lewe
+					context.beginPath();
+					context.arc(285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(281, 46);
+					context.lineTo(278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(285, 45);
+					context.lineTo(285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(289, 48);
+					context.lineTo(292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+
+					//słońce prawe
+					context.beginPath();
+					context.arc(1024 - 285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 281, 46);
+					context.lineTo(1024 - 278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(1024 - 285, 45);
+					context.lineTo(1024 - 285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(1024 - 289, 48);
+					context.lineTo(1024 - 292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+					//trójkąt-lewy
+					context.beginPath();
+					context.moveTo(300, 130);
+					context.lineTo(240, 130);
+					context.lineTo(270, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(270, 130);
+					context.lineTo(330, 130);
+					context.lineTo(300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg-lewy
+					context.beginPath();
+					context.moveTo(260, 61);
+					context.lineTo(270, 28);
+					context.lineTo(279, 61);
+					context.lineTo(275, 67);
+					context.lineTo(269, 61);
+					context.lineTo(264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(260 + 30, 61);
+					context.lineTo(270 + 30, 28);
+					context.lineTo(279 + 30, 61);
+					context.lineTo(275 + 30, 67);
+					context.lineTo(269 + 30, 61);
+					context.lineTo(264 + 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					//trójkąt-prawy
+					context.beginPath();
+					context.moveTo(724, 130);
+					context.lineTo(784, 130);
+					context.lineTo(754, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 270, 130);
+					context.lineTo(1024 - 330, 130);
+					context.lineTo(1024 - 300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg- prawy
+					context.beginPath();
+					context.moveTo(1024 - 260, 61);
+					context.lineTo(1024 - 270, 28);
+					context.lineTo(1024 - 279, 61);
+					context.lineTo(1024 - 275, 67);
+					context.lineTo(1024 - 269, 61);
+					context.lineTo(1024 - 264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 260 - 30, 61);
+					context.lineTo(1024 - 270 - 30, 28);
+					context.lineTo(1024 - 279 - 30, 61);
+					context.lineTo(1024 - 275 - 30, 67);
+					context.lineTo(1024 - 269 - 30, 61);
+					context.lineTo(1024 - 264 - 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					//tekst
+					context.font = "70px Arial";
+					context.textAlign = "center";
+					context.lineWidth = 3;
+					context.strokeText("Blog górski", canvas.width / 2, 100);
+				}
+
+			}
+		</script>
+	</header>
+
+    <nav>
+		<h2 style="color: blue; background-color:lightgray"> Menu </h2>
+        <ul>
+            <li><a href="1_Index.html" target="_self">Strona główna</a></li>
+            <li><a href="2_Gory_Polski.html" target="_self">Polskie góry</a></li>
+            <li><a href="3_kgp-tabelka.html" target="_self">Korona Gór Polski</a></li>
+            <li><a href="4_Gory_Europy.html" target="_self">Europejskie góry</a></li>
+            <li><a href="5_Gory_Swiata.html" target="_self">Góry Świata</a></li>
+            <li><a href="6_Kontakt.html" target="_self">Formularz kontaktowy</a></li>
+            <li><a href="7_schroniska.html" target="_self">Schroniska</a></li>
+            <li><a href="8_szlaki.html" target="_self">Szlaki długodystansowe</a></li>
+            <li><a href="9_kalkulator.html" target="_self">Kalkulator</a></li>
+            <li><a href="910_ciekawostki.html" target="_self">Górskie ciekawostki</a></li>
+
+
+        </ul>
+
+    </nav>
+	<article>
+		<h2 style="color:darkred; background-color:darkcyan">Góry świata</h2>
+		
+			<h3>Azja</h3>
+			<h4>Himalaje</h4>
+			Himalaje to najwyższy łańcuch górski na ziemi, swoim obszarem zachacza Pakistan, Indnie, Nepal, Brutan, Chiny oraz Mjanme.<br />
+			Znajduje się w nim 10 z 14 szczytów powyżej 8000 m n.p.m. świata. Leżą one w Himalajach Wysokich.
+			To tam właśnie znajduje się Mount Everest, czyli najwyższa góra na Ziemi.<br />
+			<br /><br /><img src="himalaje.png" alt="brak danych" style="margin-left:15px;" />
+			<br /><a style="margin-left:15px;" href="https://www.national-geographic.pl/artykul/himalaje-widoczne-pierwszy-raz-od-wielu-lat-z-odleglosci-200-km-za-sprawa-czystszego-powietrza">źródło</a>
+		
+			<h3>Ameryka Południowa</h3>
+			<h4>Andy</h4>
+			Andy to najdłuższy łańcuch górski na Ziemi. Ciągnie się on od Morza Karaibskiego aż do Ziemi Ognistej i ma ponad 9 000 kilometrów!
+			<br />
+			<br /><br /><img src="andy.png" alt="brak danych" style="margin-left:15px;" />
+			<br /><a style="margin-left:15px;" href="https://puzzlefactory.pl/pl/puzzle/graj/krajobrazy/258997-g%C3%B3ry-andy#5x3">źródło</a>
+		
+			<h3>Ameryka Północna</h3>
+			<h4>Alaska</h4>
+			Nie trudno zgadnąć, że to pasmo znajduje się na Alasce. Jego najwyższy szczyt Denali wyróżnia się dużą wybitnością.
+			Ma on 6190 m n.p.m. wysokości i przy tym aż 6138 m wybitności.
+			<br />
+			<br /><br /><img src="denali.png" alt="brak danych" style="margin-left:15px;" />
+			<br /><a style="margin-left:15px;" href="https://pl.wikipedia.org/wiki/Park_Narodowy_Denali">źródło</a>
+		
+			<h3>Afryka</h3>
+			<h4>Kilimandżaro</h4>
+			Masyw Kilimandżaro wyróżnia się na tle całego kontynenty a to za sprawą leżącego przez cały rok na szczycie śniegu.
+			Podobnie jak Denali charakteryzuje się dużą wybitnością 5885m przy wysokości większej o zaledwie 10 metrów.
+			<br />
+			<br /><br /><img src="kilimandzaro.png" alt="brak danych" style="margin-left:15px;" />
+			<br /><a style="margin-left:15px;" href="https://podroze.se.pl/aktywnie/trekking/co-musisz-wiedziec-o-wyprawie-na-kilimandzaro-przygotowania-do-trekkingu/765/">źródło</a>
+
+		
+			<h3>Australia</h3>
+			<h4>Góry Śnieżne</h4>
+			Góry Śnieżne należą do pasma Alp Austrailjskich i są najwyższym pasmem na tym kontynencie.<br />
+			Ciekawostką jest fakt, że najwyższy szczyt Australii nosi nazwę "Góra Kościuszki". Jest tak dlatego, że odkrył i nazwał ją jej pierwszy zdobywca
+			Paweł Edmund Strzelecki w 1840 roku.
+			<br />
+			<br /><br /><img src="kosciuszko.png" alt="brak danych" style="margin-left:15px;" />
+			<br /><a style="margin-left:15px;" href="https://www.tvp.info/47596601/pozary-australia-odbudowa-parku-narodowego-kosciuszki-fundusze-zebrali-strazacy-ochotnicy-z-osp-w-porebie-spytkowskiej-wieszwiecej">źródło</a>
+		
+			<h3>Antarktyda</h3>
+			<h4>Góry Ellswortha</h4>
+			Najwyższym szczytem tego mroźnego kontynentu jest Masyw Vinsona (4892 m n.p.m.) nazwany tak w celu upamiętnienia amerykańskiego polityka Carla Vinsona wspierającego eksplorację Antarktydy.
+			<br />
+			<br /><br /><img src="gory_ellswortha.png" alt="brak danych" style="margin-left:15px;" />
+			<br /><a style="margin-left:15px;" href="https://pl.wikipedia.org/wiki/G%C3%B3ry_Ellswortha">źródło</a>
+		
+		
+			<h3>Europa</h3>
+			Informacje na temat gór w Europie znajdziesz <a href="4_Gory_Europy.html">tutaj.</a>
+
+		
+
+
+
+		<div id="sfch7jphjk93u1a4hb6lfxbu57lub6bc8bc"></div>
+		<script  src="https://counter9.stat.ovh/private/counter.js?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc&down=async" async></script>
+		<noscript>
+			<a href="https://www.freecounterstat.com" title="free website hit counter">
+				<img src="https://counter9.stat.ovh/private/freecounterstat.php?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc"  title="free website hit counter" alt="free website hit counter">
+			</a>
+		</noscript>
+	</article>
+    <aside>   </aside>
+    <footer> <iframe src="KontrolkiJS.html"></iframe></footer>
+
+
+</body>
+</html>

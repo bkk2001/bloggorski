@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Polskie góry</title>
+
+    <style>
+        h1, h2 {
+            color: #5c68ea;
+            text-align: center;
+        }
+        /*h2{
+            text-align:center;
+        }*/
+    </style>
+    <link href="styl_uklad.css" type="text/css" rel="stylesheet" />
+    <link href="menu.css" type="text/css" rel="stylesheet" />
+    <script>
+        obraz_1 = new Image();
+
+        obraz_1.src = "mapa.png";
+    </script>
+
+</head>
+<body>
+    <header>
+
+        <canvas id="plotno" width="1024" height="150"></canvas>
+
+        <script>
+            var canvas, context;
+            window.onload = function () {
+                canvas = document.getElementById("plotno");
+                context = canvas.getContext("2d");
+                if (screen.width < 480) {
+                    this.context.translate(-235, 0);
+                    //słońce lewe
+                    context.beginPath();
+                    context.arc(285, 60, 15, 0, 2 * Math.PI);
+                    context.closePath();
+                    context.fillStyle = "#feb10d";
+                    context.strokeStyle = "#feb10d";
+                    context.fill();
+                    context.stroke();
+
+                    context.beginPath();
+                    context.moveTo(281, 46);
+                    context.lineTo(278, 32);
+                    context.closePath();
+                    context.stroke();
+                    context.beginPath();
+                    context.moveTo(285, 45);
+                    context.lineTo(285, 32);
+                    context.closePath();
+                    context.stroke();
+                    context.beginPath();
+                    context.moveTo(289, 48);
+                    context.lineTo(292, 32);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "#feb10d";
+                    //trójkąt-lewy
+                    context.beginPath();
+                    context.moveTo(300, 130);
+                    context.lineTo(240, 130);
+                    context.lineTo(270, 25);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "grey";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    context.beginPath();
+                    context.moveTo(270, 130);
+                    context.lineTo(330, 130);
+                    context.lineTo(300, 25);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "grey";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    //śnieg-lewy
+                    context.beginPath();
+                    context.moveTo(260, 61);
+                    context.lineTo(270, 28);
+                    context.lineTo(279, 61);
+                    context.lineTo(275, 67);
+                    context.lineTo(269, 61);
+                    context.lineTo(264, 67);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "white";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.stroke();
+
+                    context.beginPath();
+                    context.moveTo(260 + 30, 61);
+                    context.lineTo(270 + 30, 28);
+                    context.lineTo(279 + 30, 61);
+                    context.lineTo(275 + 30, 67);
+                    context.lineTo(269 + 30, 61);
+                    context.lineTo(264 + 30, 67);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "white";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.stroke();
+                    //tekst
+                    context.font = "70px Arial";
+                    context.textAlign = "center";
+                    context.lineWidth = 3;
+                    context.strokeText("Blog górski", canvas.width / 2, 100);
+                }
+                else {
+                    //słońce lewe
+                    context.beginPath();
+                    context.arc(285, 60, 15, 0, 2 * Math.PI);
+                    context.closePath();
+                    context.fillStyle = "#feb10d";
+                    context.strokeStyle = "#feb10d";
+                    context.fill();
+                    context.stroke();
+
+                    context.beginPath();
+                    context.moveTo(281, 46);
+                    context.lineTo(278, 32);
+                    context.closePath();
+                    context.stroke();
+                    context.beginPath();
+                    context.moveTo(285, 45);
+                    context.lineTo(285, 32);
+                    context.closePath();
+                    context.stroke();
+                    context.beginPath();
+                    context.moveTo(289, 48);
+                    context.lineTo(292, 32);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "#feb10d";
+
+                    //słońce prawe
+                    context.beginPath();
+                    context.arc(1024 - 285, 60, 15, 0, 2 * Math.PI);
+                    context.closePath();
+                    context.fillStyle = "#feb10d";
+                    context.strokeStyle = "#feb10d";
+                    context.fill();
+                    context.stroke();
+
+                    context.beginPath();
+                    context.moveTo(1024 - 281, 46);
+                    context.lineTo(1024 - 278, 32);
+                    context.closePath();
+                    context.stroke();
+                    context.beginPath();
+                    context.moveTo(1024 - 285, 45);
+                    context.lineTo(1024 - 285, 32);
+                    context.closePath();
+                    context.stroke();
+                    context.beginPath();
+                    context.moveTo(1024 - 289, 48);
+                    context.lineTo(1024 - 292, 32);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "#feb10d";
+                    //trójkąt-lewy
+                    context.beginPath();
+                    context.moveTo(300, 130);
+                    context.lineTo(240, 130);
+                    context.lineTo(270, 25);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "grey";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    context.beginPath();
+                    context.moveTo(270, 130);
+                    context.lineTo(330, 130);
+                    context.lineTo(300, 25);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "grey";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    //śnieg-lewy
+                    context.beginPath();
+                    context.moveTo(260, 61);
+                    context.lineTo(270, 28);
+                    context.lineTo(279, 61);
+                    context.lineTo(275, 67);
+                    context.lineTo(269, 61);
+                    context.lineTo(264, 67);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "white";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.stroke();
+
+                    context.beginPath();
+                    context.moveTo(260 + 30, 61);
+                    context.lineTo(270 + 30, 28);
+                    context.lineTo(279 + 30, 61);
+                    context.lineTo(275 + 30, 67);
+                    context.lineTo(269 + 30, 61);
+                    context.lineTo(264 + 30, 67);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "white";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.stroke();
+
+                    //trójkąt-prawy
+                    context.beginPath();
+                    context.moveTo(724, 130);
+                    context.lineTo(784, 130);
+                    context.lineTo(754, 25);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "grey";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    context.beginPath();
+                    context.moveTo(1024 - 270, 130);
+                    context.lineTo(1024 - 330, 130);
+                    context.lineTo(1024 - 300, 25);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "grey";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    //śnieg- prawy
+                    context.beginPath();
+                    context.moveTo(1024 - 260, 61);
+                    context.lineTo(1024 - 270, 28);
+                    context.lineTo(1024 - 279, 61);
+                    context.lineTo(1024 - 275, 67);
+                    context.lineTo(1024 - 269, 61);
+                    context.lineTo(1024 - 264, 67);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "white";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.stroke();
+
+                    context.beginPath();
+                    context.moveTo(1024 - 260 - 30, 61);
+                    context.lineTo(1024 - 270 - 30, 28);
+                    context.lineTo(1024 - 279 - 30, 61);
+                    context.lineTo(1024 - 275 - 30, 67);
+                    context.lineTo(1024 - 269 - 30, 61);
+                    context.lineTo(1024 - 264 - 30, 67);
+                    context.closePath();
+                    context.stroke();
+                    context.fillStyle = "white";
+                    context.fill();
+                    context.lineWidth = 2;
+                    context.lineJoin = "level";
+                    context.stroke();
+
+                    //tekst
+                    context.font = "70px Arial";
+                    context.textAlign = "center";
+                    context.lineWidth = 3;
+                    context.strokeText("Blog górski", canvas.width / 2, 100);
+                }
+
+            }
+        </script>
+    </header>
+
+    <nav>
+        <h2 style="color: blue; background-color:lightgray"> Menu </h2>
+        <ul>
+            <li><a href="1_Index.html" target="_self">Strona główna</a></li>
+            <li><a href="2_Gory_Polski.html" target="_self">Polskie góry</a></li>
+            <li><a href="3_kgp-tabelka.html" target="_self">Korona Gór Polski</a></li>
+            <li><a href="4_Gory_Europy.html" target="_self">Europejskie góry</a></li>
+            <li><a href="5_Gory_Swiata.html" target="_self">Góry Świata</a></li>
+            <li><a href="6_Kontakt.html" target="_self">Formularz kontaktowy</a></li>
+            <li><a href="7_schroniska.html" target="_self">Schroniska</a></li>
+            <li><a href="8_szlaki.html" target="_self">Szlaki długodystansowe</a></li>
+            <li><a href="9_kalkulator.html" target="_self">Kalkulator</a></li>
+            <li><a href="910_ciekawostki.html" target="_self">Górskie ciekawostki</a></li>
+
+
+        </ul>
+
+    </nav>
+    <article>
+        <h2 style="color:darkred; background-color:darkcyan">Strona o polskich górach</h2>
+        <h3>Geografia</h3>
+        Góry w Polsce znajdują się na południu kraju, wśród znajdujących się na terenie naszego kraju łańcuchów górskich możemy wymienić:
+
+
+        <h4><b>Karpaty</b></h4>
+        W skład Karpat wchodzi 12 pasm, do popularniejsz:ych należą:
+        <ul>
+            <li>Tatry</li>
+            <li>Pieniny</li>
+            <li>Bieszczady</li>
+        </ul>
+        <h4><b>Sudety</b></h4>
+        W skład łańcucha sudeckiego wchodzi 15 pasm, w tym między innymi:
+        <ul>
+            <li>Karkonosze</li>
+            <li>Góry Izerskie</li>
+            <li>Góry Stołowe</li>
+            <li>Masyw Śnieżnika</li>
+        </ul>
+        <h4><b>Góry Świętokrzyskie</b></h4>
+        Jest to chyba najmniej polularny łańcuch z polskich gór. W jego skład wchodzi 19 pasm. min:
+        <ul>
+            <li>Pasmo Klonowe</li>
+            <li>Pasmo Orłowickie</li>
+            <li>Pasmo Daleszydzkie</li>
+        </ul>
+        Chyba mało kto słyszał te nazwy, chyba, że mieszka gdzieś w nie dalekiej odległości od Gór Świętokrzyskich.
+
+
+        <h4>Góry na mapie</h4>
+        Chcesz się dowiedzieć co to za pasmo na mapie naszego kraju? Kliknij a się dowiesz!
+        <figure>
+            <div style="text-align: left"><img src="mapa.png" width="740" height="301" alt="cos" usemap="#goryPL" /></div>
+
+
+        </figure>
+        <map name="goryPL" id="goryPL">
+
+            <area shape="poly" coords="128,96,138,93,148,107,151,118,153,134,147,133,143,120,142,115" alt="brak danych"
+                  href="javascript:alert('Góry Bystrzydzkie')" />
+
+            <area shape="poly" coords="27,23,43,22,56,29,40,39" alt="brak danych"
+                  href="javascript:alert('Góry Izerskie')" />
+
+            <area shape="poly" coords="43,39,57,33,72,38,80,48,56,49" alt="brak danych"
+                  href="javascript:alert('Karkonosze')" />
+
+            <area shape="poly" coords="80,45,92,40,94,25,80,30,76,42" alt="brak danych"
+                  href="javascript:alert('Rudawy Janowickie')" />
+
+            <area shape="poly" coords="52,12,61,3,95,14,76,23" alt="brak danych"
+                  href="javascript:alert('Góry Kaczawskie')" />
+
+            <area shape="poly" coords="124,56,105,44,95,54,97,62,102,49,112,57" alt="brak danych"
+                  href="javascript:alert('Góry Kamienne')" />
+
+            <area shape="poly" coords="118,49,122,41,108,32,100,38,110,44" alt="brak danych"
+                  href="javascript:alert('Góry Wałbrzyskie')" />
+
+            <area shape="poly" coords="132,38,152,65,146,70,132,56" alt="brak danych"
+                  href="javascript:alert('Góry Sowie')" />
+
+            <area shape="poly" coords="113,90,123,93,136,90,127,82,120,85" alt="brak danych"
+                  href="javascript:alert('Góry Stołowe')" />
+
+            <area shape="poly" coords="148,78,160,91,167,85,156,73" alt="brak danych"
+                  href="javascript:alert('Góry Bardzkie')" />
+
+            <area shape="poly" coords="159,134,160,110,165,104,176,116,179,121,170,125" alt="brak danych"
+                  href="javascript:alert('Masyw Śnieżnika ')" />
+
+            <area shape="poly" coords="172,108,178,108,185,112,183,118,178,120,174,114" alt="brak danych"
+                  href="javascript:alert('Góry Bialskie')" />
+
+            <area shape="poly" coords="174,88,164,93,166,101,177,104,176,97" alt="brak danych"
+                  href="javascript:alert('Góry Złote')" />
+
+            <area shape="poly" coords="213,106,215,115,226,118,229,114" alt="brak danych"
+                  href="javascript:alert('Góry Opawskie')" />
+
+            <area shape="poly" coords="436,245,438,253,434,261,443,263,450,260,461,265,465,257,456,250" alt="brak danych"
+                  href="javascript:alert('Tatry')" />
+
+            <area shape="poly" coords="343,194,357,183,368,183,370,193,367,203,362,218,353,217,349,205" alt="brak danych"
+                  href="javascript:alert('Beskid Śląski')" />
+
+            <area shape="poly" coords="375,180,383,176,401,182,402,189,385,190,375,185" alt="brak danych"
+                  href="javascript:alert('Beskid Mały')" />
+
+            <area shape="poly" coords="362,222,364,236,380,235,387,219,405,208,414,213,430,203,415,187,404,190,383,205" alt="brak danych"
+                  href="javascript:alert('Beskid Żywiecki')" />
+
+            <area shape="poly" coords="421,177,421,187,434,197,446,196,452,202,466,198,470,187,451,175" alt="brak danych"
+                  href="javascript:alert('Beskid Makowski')" />
+
+            <area shape="poly" coords="453,210,457,220,482,227,491,215,478,208,457,208" alt="brak danych"
+                  href="javascript:alert('Gorce')" />
+
+            <area shape="poly" coords="455,199,515,200,510,179,455,178" alt="brak danych"
+                  href="javascript:alert('Beskid Wyspowy')" />
+
+            <area shape="poly" coords="484,231,485,235,499,236,498,231,485,230" alt="brak danych"
+                  href="javascript:alert('Pieniny')" />
+
+            <area shape="poly" coords="525,211,549,234,585,233,607,233,633,246,640,230,622,217,577,206,528,209" alt="brak danych"
+                  href="javascript:alert('Beskid Niski')" />
+
+            <area shape="poly" coords="635,247,639,261,687,208,715,290,715,277,701,268,702,255,645,232" alt="brak danych"
+                  href="javascript:alert('Bieszczady')" />
+
+            <area shape="poly" coords="488,226,506,237,517,233,512,223,496,215" alt="brak danych"
+                  href="javascript:alert('Beskid Sądecki')" />
+
+            <area shape="poly" coords="502,30,542,45,549,24,511,11" alt="brak danych"
+                  href="javascript:alert('Góry Świętokrzyskie')" />
+
+            <area shape="poly" coords="148,35,158,37,163,27,156,26" alt="brak danych"
+                  href="javascript:alert('Masyw Ślęży')" />
+
+            <area shape="poly" coords="119,99,127,97,133,106,140,120,136,123,122,108" alt="brak danych"
+                  href="javascript:alert('Góry Orlickie')" />
+
+           
+        </map>
+        <a href="https://www.google.com/maps/@50.0834075,19.081485,7.75z/data=!5m1!1e4" target="_blank">źródło</a>
+
+        <div id="sfch7jphjk93u1a4hb6lfxbu57lub6bc8bc"></div>
+        <script  src="https://counter9.stat.ovh/private/counter.js?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc&down=async" async></script>
+        <noscript>
+            <a href="https://www.freecounterstat.com" title="free website hit counter">
+                <img src="https://counter9.stat.ovh/private/freecounterstat.php?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc" title="free website hit counter" alt="free website hit counter">
+            </a>
+        </noscript>
+    </article>
+    <aside>   </aside>
+    <footer> <iframe src="KontrolkiJS.html"></iframe></footer>
+
+
+</body>
+</html>

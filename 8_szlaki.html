@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Szlaki długodystansowe</title>
+
+	<style>
+		h1, h2 {
+			color: #5c68ea;
+			text-align: center;
+		}
+		/*h2{
+			text-align:center;
+		}*/
+	</style>
+	<link href="styl_uklad.css" type="text/css" rel="stylesheet" />
+	<link href="menu.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+	<header>
+
+		<canvas id="plotno" width="1024" height="150"></canvas>
+
+		<script>
+			var canvas, context;
+			window.onload = function () {
+				canvas = document.getElementById("plotno");
+				context = canvas.getContext("2d");
+				if (screen.width < 480) {
+					this.context.translate(-235, 0);
+					//słońce lewe
+					context.beginPath();
+					context.arc(285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(281, 46);
+					context.lineTo(278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(285, 45);
+					context.lineTo(285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(289, 48);
+					context.lineTo(292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+					//trójkąt-lewy
+					context.beginPath();
+					context.moveTo(300, 130);
+					context.lineTo(240, 130);
+					context.lineTo(270, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(270, 130);
+					context.lineTo(330, 130);
+					context.lineTo(300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg-lewy
+					context.beginPath();
+					context.moveTo(260, 61);
+					context.lineTo(270, 28);
+					context.lineTo(279, 61);
+					context.lineTo(275, 67);
+					context.lineTo(269, 61);
+					context.lineTo(264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(260 + 30, 61);
+					context.lineTo(270 + 30, 28);
+					context.lineTo(279 + 30, 61);
+					context.lineTo(275 + 30, 67);
+					context.lineTo(269 + 30, 61);
+					context.lineTo(264 + 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+					//tekst
+					context.font = "70px Arial";
+					context.textAlign = "center";
+					context.lineWidth = 3;
+					context.strokeText("Blog górski", canvas.width / 2, 100);
+				}
+				else {
+					//słońce lewe
+					context.beginPath();
+					context.arc(285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(281, 46);
+					context.lineTo(278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(285, 45);
+					context.lineTo(285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(289, 48);
+					context.lineTo(292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+
+					//słońce prawe
+					context.beginPath();
+					context.arc(1024 - 285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 281, 46);
+					context.lineTo(1024 - 278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(1024 - 285, 45);
+					context.lineTo(1024 - 285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(1024 - 289, 48);
+					context.lineTo(1024 - 292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+					//trójkąt-lewy
+					context.beginPath();
+					context.moveTo(300, 130);
+					context.lineTo(240, 130);
+					context.lineTo(270, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(270, 130);
+					context.lineTo(330, 130);
+					context.lineTo(300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg-lewy
+					context.beginPath();
+					context.moveTo(260, 61);
+					context.lineTo(270, 28);
+					context.lineTo(279, 61);
+					context.lineTo(275, 67);
+					context.lineTo(269, 61);
+					context.lineTo(264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(260 + 30, 61);
+					context.lineTo(270 + 30, 28);
+					context.lineTo(279 + 30, 61);
+					context.lineTo(275 + 30, 67);
+					context.lineTo(269 + 30, 61);
+					context.lineTo(264 + 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					//trójkąt-prawy
+					context.beginPath();
+					context.moveTo(724, 130);
+					context.lineTo(784, 130);
+					context.lineTo(754, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 270, 130);
+					context.lineTo(1024 - 330, 130);
+					context.lineTo(1024 - 300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg- prawy
+					context.beginPath();
+					context.moveTo(1024 - 260, 61);
+					context.lineTo(1024 - 270, 28);
+					context.lineTo(1024 - 279, 61);
+					context.lineTo(1024 - 275, 67);
+					context.lineTo(1024 - 269, 61);
+					context.lineTo(1024 - 264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 260 - 30, 61);
+					context.lineTo(1024 - 270 - 30, 28);
+					context.lineTo(1024 - 279 - 30, 61);
+					context.lineTo(1024 - 275 - 30, 67);
+					context.lineTo(1024 - 269 - 30, 61);
+					context.lineTo(1024 - 264 - 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					//tekst
+					context.font = "70px Arial";
+					context.textAlign = "center";
+					context.lineWidth = 3;
+					context.strokeText("Blog górski", canvas.width / 2, 100);
+				}
+
+			}
+		</script>
+	</header>
+
+    <nav>
+		<h2 style="color: blue; background-color:lightgray"> Menu </h2>
+        <ul>
+            <li><a href="1_Index.html" target="_self">Strona główna</a></li>
+            <li><a href="2_Gory_Polski.html" target="_self">Polskie góry</a></li>
+            <li><a href="3_kgp-tabelka.html" target="_self">Korona Gór Polski</a></li>
+            <li><a href="4_Gory_Europy.html" target="_self">Europejskie góry</a></li>
+            <li><a href="5_Gory_Swiata.html" target="_self">Góry Świata</a></li>
+            <li><a href="6_Kontakt.html" target="_self">Formularz kontaktowy</a></li>
+            <li><a href="7_schroniska.html" target="_self">Schroniska</a></li>
+            <li><a href="8_szlaki.html" target="_self">Szlaki długodystansowe</a></li>
+            <li><a href="9_kalkulator.html" target="_self">Kalkulator</a></li>
+            <li><a href="910_ciekawostki.html" target="_self">Górskie ciekawostki</a></li>
+
+
+        </ul>
+
+    </nav>
+	<article>
+		<h2 style="color:darkred; background-color:darkcyan">Szlaki długodystansowe</h2>
+		Najkrótsze szlaki, które można określić jako długodystansowe mają długość znacznie poniżej 500km,
+		natomiast te najdłuższe nawet 24 000km!
+		<br />
+
+		<h3>Ameryka</h3>
+		Ameryka, zarówno północna jak i południowa kojarzą się z dużą przestrzenią i nie bez powodu. Możemy tu bowiem znaleźć naprawdę sporo tras dla zapalonych wędrowców.
+		<br />
+		<h4>Trans Canada Trial</h4>
+		<img src="the-great-trail-map.jpg" width="738" height="511" style="margin-left:15px;" alt="brak danych" /><br />
+		<a href="https://gearjunkie.com/outdoor/hiking/the-great-trail-trans-canada-worlds-longest" target="_blank" style="margin-left:15px;">źródło</a>
+		<br />
+		Jest to chyba najdłuższy szlak na świecie liczy on 24 000km, czyli ponad 14 900mil.
+		Łączy on wszystkie prowincje Kanady, więcej o nim można dowiedzieć się na stronie: <a href="https://tctrail.ca/" target="_blank">tctrial.ca</a>
+
+		<h4>Appalachian Trial</h4>(USA)
+		Nie jest to szlak tak długi jak ten przedstawiony powyżej, bo ma "zaledwie" 3 520km.
+		Jest to jednak najpopularniejszy szlak długodystansowy w Ameryce Północnej, rocznie przechodzi go ponad 2 500 osób.
+		Appalachy przez, które prowadzi nie są wysokie(najwyższy szczyt ma 2037m n.p.m.) jednak przejście całego szlaku to około 140 kilometrów przewyższenia.
+		<a href="https://appalachiantrail.org/" target="_blank">www.appalachiantrail.org</a>
+
+		<h3>Europa</h3>
+		<h4>Grand Italian Trial</h4>
+		Jest to szlak prowadzący z miasta Triest i prowadzi przez Półwysep Apeniński aż do Sycyli, gdzie trzeba skożystać z promu na Sardynię.
+		Swoją długością dorównuje szlakom z Ameryki, mierzy on bowiem ponad 6 000km.
+		<h4>GR 20</h4>
+		Ten szlak zdecydowanie należy do najtrudniejszych w Europie. Jego długość nijak ma się do szlaków z Ameryki, jednak nadrabia trundościami technicznymi.
+		Na długości 200km mamy do podejścia 10 000 metrów.
+		<h4>Alpine Pass Route</h4>
+		Alpine Pass Route jest to szlak szwajcarski prowadzący przez Alpy. Liczy on 354km i prawie 20 000 metrów przewyższenia.
+		<h4>Szlaki EuroVelo</h4>
+		Na koniec tej części trudno nie wspomnieć o szlakach <a href="https://en.eurovelo.com/" target="_blank">EuroVelo</a>.
+		Są to szlaki rowerowe ale nic nie stoi na przeszkodzie aby pokonać je pieszo.
+		<h3>Polska</h3>
+		<h4>Główny Szlak Beskidzki</h4>
+		GSB prowadzi od Ustronia w Beskidzie Śląskim do Wołosatego w Bieszczadach.
+		Liczy on około 500km i jest najdłuszym szlakiem w Polskich górach.
+		<img src="gsb.jpg" style="margin-left:15px;" alt="brak danych"/><br />
+		<a href="https://www.beskidsadecki.eu/index.php?id=sadecki_szlaki&sk=GlownySzlakBeskidzki" target="_blank" style="margin-left:15px;">źródło</a>
+
+		<h4>Główny Szlak Sudedzki</h4>
+		GSS ma około 440km i prowadzi ze Świeradowa-Zdroju do Prudnika.<br />
+		<img src="Glowny_szlak_sudecki.jpg" style="margin-left:15px;" alt="brak danych"/><br />
+		<a href="https://pl.wikipedia.org/wiki/G%C5%82%C3%B3wny_Szlak_Sudecki" target="_blank" style="margin-left:15px;">źródło</a>
+
+
+		<div id="sfch7jphjk93u1a4hb6lfxbu57lub6bc8bc"></div>
+		<script  src="https://counter9.stat.ovh/private/counter.js?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc&down=async" async></script>
+		<noscript>
+			<a href="https://www.freecounterstat.com" title="free website hit counter">
+				<img src="https://counter9.stat.ovh/private/freecounterstat.php?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc"  title="free website hit counter" alt="free website hit counter">
+			</a>
+		</noscript>
+	</article>
+    <aside>   </aside>
+    <footer> <iframe src="KontrolkiJS.html"></iframe></footer>
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿@media (min-width:480px) {
+    nav ul, nav ul li {
+        display: block;
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    nav ul {
+        width: 175px;
+        padding: 2px 2px 1px 2px;
+        /*tło okienek w menu*/
+        background-color: darkcyan;
+        border: 3px double #ff0000;
+    }
+
+        nav ul li {
+            border-bottom: 1px solid #000000;
+        }
+
+        nav ul a:link, nav ul a:visited {
+            display: block;
+            width: 150px;
+            text-decoration: none;
+            font-weight: bold;
+            /*kolor przycisków*/
+            background-color: #f6f8c5;
+            /*kolor czcionki*/
+            color: #000000;
+            border-left: 10px solid #000000;
+            padding: 10px;
+        }
+
+        nav ul a:hover {
+            width: 155px;
+            border-left: 25px solid #0125f8;
+            color: white;
+            background-color: black;
+        }
+}
+    @media (max-width:480px) {
+        nav ul, nav ul li {
+            display: block;
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        nav ul {
+            width: 100%;
+            padding: 2px 2px 1px 2px;
+            /*tło okienek w menu*/
+            background-color: darkcyan;
+            border: 3px double #ff0000;
+        }
+
+            nav ul li {
+                border-bottom: 1px solid #000000;
+            }
+
+            nav ul a:link, nav ul a:visited {
+                display: block;
+                width: 95%;
+                text-decoration: none;
+                font-weight: bold;
+                /*kolor przycisków*/
+                background-color: #f6f8c5;
+                /*kolor czcionki*/
+                color: #000000;
+                border-left: 10px solid #000000;
+                padding: 10px;
+            }
+
+            nav ul a:hover {
+                width: 95%;
+                border-left: 25px solid #0125f8;
+                color: white;
+                background-color: black;
+            }
+    }

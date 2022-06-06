@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Góry w Europie</title>
+
+	<style>
+		h1, h2 {
+			color: #5c68ea;
+			text-align: center;
+		}
+		/*h2{
+			text-align:center;
+		}*/
+
+
+	</style>
+	<link href="styl_uklad.css" type="text/css" rel="stylesheet" />
+	<link href="menu.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+	<header>
+
+		<canvas id="plotno" width="1024" height="150"></canvas>
+
+		<script>
+			var canvas, context;
+			window.onload = function () {
+				canvas = document.getElementById("plotno");
+				context = canvas.getContext("2d");
+				if (screen.width < 480) {
+					this.context.translate(-235, 0);
+					//słońce lewe
+					context.beginPath();
+					context.arc(285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(281, 46);
+					context.lineTo(278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(285, 45);
+					context.lineTo(285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(289, 48);
+					context.lineTo(292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+					//trójkąt-lewy
+					context.beginPath();
+					context.moveTo(300, 130);
+					context.lineTo(240, 130);
+					context.lineTo(270, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(270, 130);
+					context.lineTo(330, 130);
+					context.lineTo(300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg-lewy
+					context.beginPath();
+					context.moveTo(260, 61);
+					context.lineTo(270, 28);
+					context.lineTo(279, 61);
+					context.lineTo(275, 67);
+					context.lineTo(269, 61);
+					context.lineTo(264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(260 + 30, 61);
+					context.lineTo(270 + 30, 28);
+					context.lineTo(279 + 30, 61);
+					context.lineTo(275 + 30, 67);
+					context.lineTo(269 + 30, 61);
+					context.lineTo(264 + 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+					//tekst
+					context.font = "70px Arial";
+					context.textAlign = "center";
+					context.lineWidth = 3;
+					context.strokeText("Blog górski", canvas.width / 2, 100);
+				}
+				else {
+					//słońce lewe
+					context.beginPath();
+					context.arc(285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(281, 46);
+					context.lineTo(278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(285, 45);
+					context.lineTo(285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(289, 48);
+					context.lineTo(292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+
+					//słońce prawe
+					context.beginPath();
+					context.arc(1024 - 285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 281, 46);
+					context.lineTo(1024 - 278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(1024 - 285, 45);
+					context.lineTo(1024 - 285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(1024 - 289, 48);
+					context.lineTo(1024 - 292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+					//trójkąt-lewy
+					context.beginPath();
+					context.moveTo(300, 130);
+					context.lineTo(240, 130);
+					context.lineTo(270, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(270, 130);
+					context.lineTo(330, 130);
+					context.lineTo(300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg-lewy
+					context.beginPath();
+					context.moveTo(260, 61);
+					context.lineTo(270, 28);
+					context.lineTo(279, 61);
+					context.lineTo(275, 67);
+					context.lineTo(269, 61);
+					context.lineTo(264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(260 + 30, 61);
+					context.lineTo(270 + 30, 28);
+					context.lineTo(279 + 30, 61);
+					context.lineTo(275 + 30, 67);
+					context.lineTo(269 + 30, 61);
+					context.lineTo(264 + 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					//trójkąt-prawy
+					context.beginPath();
+					context.moveTo(724, 130);
+					context.lineTo(784, 130);
+					context.lineTo(754, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 270, 130);
+					context.lineTo(1024 - 330, 130);
+					context.lineTo(1024 - 300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg- prawy
+					context.beginPath();
+					context.moveTo(1024 - 260, 61);
+					context.lineTo(1024 - 270, 28);
+					context.lineTo(1024 - 279, 61);
+					context.lineTo(1024 - 275, 67);
+					context.lineTo(1024 - 269, 61);
+					context.lineTo(1024 - 264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 260 - 30, 61);
+					context.lineTo(1024 - 270 - 30, 28);
+					context.lineTo(1024 - 279 - 30, 61);
+					context.lineTo(1024 - 275 - 30, 67);
+					context.lineTo(1024 - 269 - 30, 61);
+					context.lineTo(1024 - 264 - 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					//tekst
+					context.font = "70px Arial";
+					context.textAlign = "center";
+					context.lineWidth = 3;
+					context.strokeText("Blog górski", canvas.width / 2, 100);
+				}
+
+			}
+		</script>
+	</header>
+
+    <nav>
+		<h2 style="color: blue; background-color:lightgray"> Menu </h2>
+        <ul>
+            <li><a href="1_Index.html" target="_self">Strona główna</a></li>
+            <li><a href="2_Gory_Polski.html" target="_self">Polskie góry</a></li>
+            <li><a href="3_kgp-tabelka.html" target="_self">Korona Gór Polski</a></li>
+            <li><a href="4_Gory_Europy.html" target="_self">Europejskie góry</a></li>
+            <li><a href="5_Gory_Swiata.html" target="_self">Góry Świata</a></li>
+            <li><a href="6_Kontakt.html" target="_self">Formularz kontaktowy</a></li>
+            <li><a href="7_schroniska.html" target="_self">Schroniska</a></li>
+            <li><a href="8_szlaki.html" target="_self">Szlaki długodystansowe</a></li>
+            <li><a href="9_kalkulator.html" target="_self">Kalkulator</a></li>
+            <li><a href="910_ciekawostki.html" target="_self">Górskie ciekawostki</a></li>
+
+
+        </ul>
+
+    </nav>
+	<article>
+		<h2 style="color:darkred; background-color:darkcyan">Europejskie góry</h2>
+		
+			W Europie jest naprawdę wiele łańcuchów górskich. Do tych największych należą:
+			<ul>
+				<li><b>Alpy</b></li>
+				<li><b>Pireneje</b></li>
+				<li><b>Apeniny</b></li>
+				<li><b>Góry Skandynawskie</b></li>
+				<li><b>Karpaty</b></li>
+				<li><b>Ural</b></li>
+			</ul>
+
+		
+			<h4>Alpy</h4>
+			Jest to najwyższy łańcuch górski w Europie, najwyższy szczyt Mont Blanc ma 4808 m n.p.m.<br />
+			Swoim obszarem rozlewa się na osiem państw i ma 220 tysięcy kilometrów kwadratowych.
+			<br /><br /><img src="alpy.png" alt="brak danych" style="margin-left:15px;"/>
+			<br /><a style="margin-left:15px;" href="https://magazyn.travelist.pl/top-10-wloskie-alpy-najpiekniejsze-miejsca-i-najwieksze-atrakcje/">źródło</a>
+		
+			<h4>Pireneje</h4>
+			W porównaniu do pozostałych łańcuchów na tej liście jest niewielki, bo ma zeledwie 450 km długości i około 55 tys kilometrów kwadratowych powierzchni.
+			<br /> Znajdują się na pograniczu Francji i Hiszpani oraz w całości obejmuje Andorę.
+			<br /><br /><img src="pireneje.png" alt="brak danych" style="margin-left:15px;"/>
+			<br /><a href="https://pl.wikipedia.org/wiki/Pireneje" style="margin-left:15px;">źródło</a>
+		
+			<h4>Apeniny</h4>
+			Jest to włoski łańcuch ciągnące się przez Półwysep Apeniński na długości 1350 km, szeroki od 40 do 200 km.<br />
+			Najwyższy szczyt-Corno Grande ma 2912m n.p.m.
+			<br /><br /><img src="apeniny_corno_grande.png" alt="brak danych" style="margin-left:15px;" />
+			<br /><a href="https://pl.wikipedia.org/wiki/Apeniny" style="margin-left:15px;">źródło</a>
+		
+			<h4>Góry Skandynawskie</h4>
+			To malowniczy łańcuch ma prawie dwa tysiące kilometrów długości i jak sama jego nazwa wskazuje znajduje się w Skandynawii.<br />
+			Wyjątkowe dla tych gór są fiordy. Najdłuższy nazwany Sognefjord ma ponad dwieście kilometrów!
+			Wysokością są zbliżone do Tatr. Najwyższy szczyt znajduje się na terenie Pparku Narodowego Jotunheimen w Norwegii i ma niecałe dwa i poł kilometra nad poziomem morza.<br />
+			Do wyprawy w ten rejon(zwłaszcza z namiotem, ale nie tylko) zachęca liberalne prawo dotyczące właśnie biwakowania.
+			Wybierając się w taką podróż pamiętajcie stosować się do zasady "Leave no trace".
+			<br /><br /><img src="gory_skandynawskie.png" alt="brak danych" style="margin-left:15px;" />
+			<br /><a href="https://pl.wikipedia.org/wiki/G%C3%B3ry_Skandynawskie" style="margin-left:15px;">źródło</a>
+		
+			<h4>Karpaty</h4>
+			Powieszchnią podobnie jak Alpy obejmują osiem państw (w tym Polskę) i są od nich o około 30 tys kilometrów kwadratowych mniejsze.
+			<br />Karpaty są odrobinę niższe od Apenin, Gerlach najwyższy szczyt ma 2655 m n.p.m.
+			<br /><br /><img src="karpaty.png"  alt="brak danych" style="margin-left:15px;" />
+			<br /><a href="https://www.eurogory.com/karpaty.php" style="margin-left:15px;">źródło</a>
+		
+			<h4>Ural</h4>
+			Jest to łańcuh uważany za granicę pomiędzy Europą a Azją.
+			Jego najwyższym szczytem jest Narodnaja 1895m n.p.m.
+			Ten łańcuch ma ponad dwa tysięce kilometrów długości i znajduje się w całości na terenie Rosji.
+			<br /><br /><img src="ural.png" alt="brak danych" style="margin-left:15px;" />
+			<br /><a href="https://pl.wikipedia.org/wiki/Ural_(region_fizycznogeograficzny)" style="margin-left:15px;">źródło</a>
+		
+
+		<div id="sfch7jphjk93u1a4hb6lfxbu57lub6bc8bc"></div>
+		<script  src="https://counter9.stat.ovh/private/counter.js?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc&down=async" async></script>
+		<noscript>
+			<a href="https://www.freecounterstat.com" title="free website hit counter">
+				<img src="https://counter9.stat.ovh/private/freecounterstat.php?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc"  title="free website hit counter" alt="free website hit counter">
+			</a>
+		</noscript>
+	</article>
+    <aside>   </aside>
+    <footer> <iframe src="KontrolkiJS.html"></iframe></footer>
+
+
+</body>
+</html>

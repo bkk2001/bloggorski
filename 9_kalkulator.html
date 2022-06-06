@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Kalkulator</title>
+
+	<link href="kalkulator.css" type="text/css" rel="stylesheet" />
+	<link href="styl_uklad.css" type="text/css" rel="stylesheet" />
+	<link href="menu.css" type="text/css" rel="stylesheet" />
+	<script >
+		function Calculator() {
+			var a = parseFloat(document.getElementById('a').value);
+			var b = parseFloat(document.getElementById('b').value);
+			var c = parseFloat(document.getElementById('c').value);
+			var d = parseFloat(document.getElementById('d').value);
+
+			var resultT = (c) - (((b) - (a)) * 0.6 / 100);
+			var resultP = (d) - (((b) - (a)) * 1 / 8);
+			document.getElementById('resultT').value = resultT;
+			document.getElementById('resultP').value = resultP;
+		}
+	</script>
+</head>
+<body>
+	<header>
+
+		<canvas id="plotno" width="1024" height="150"></canvas>
+
+		<script>
+			var canvas, context;
+			window.onload = function () {
+				canvas = document.getElementById("plotno");
+				context = canvas.getContext("2d");
+				if (screen.width < 480) {
+					this.context.translate(-235, 0);
+					//słońce lewe
+					context.beginPath();
+					context.arc(285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(281, 46);
+					context.lineTo(278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(285, 45);
+					context.lineTo(285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(289, 48);
+					context.lineTo(292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+					//trójkąt-lewy
+					context.beginPath();
+					context.moveTo(300, 130);
+					context.lineTo(240, 130);
+					context.lineTo(270, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(270, 130);
+					context.lineTo(330, 130);
+					context.lineTo(300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg-lewy
+					context.beginPath();
+					context.moveTo(260, 61);
+					context.lineTo(270, 28);
+					context.lineTo(279, 61);
+					context.lineTo(275, 67);
+					context.lineTo(269, 61);
+					context.lineTo(264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(260 + 30, 61);
+					context.lineTo(270 + 30, 28);
+					context.lineTo(279 + 30, 61);
+					context.lineTo(275 + 30, 67);
+					context.lineTo(269 + 30, 61);
+					context.lineTo(264 + 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+					//tekst
+					context.font = "70px Arial";
+					context.textAlign = "center";
+					context.lineWidth = 3;
+					context.strokeText("Blog górski", canvas.width / 2, 100);
+				}
+				else {
+					//słońce lewe
+					context.beginPath();
+					context.arc(285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(281, 46);
+					context.lineTo(278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(285, 45);
+					context.lineTo(285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(289, 48);
+					context.lineTo(292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+
+					//słońce prawe
+					context.beginPath();
+					context.arc(1024 - 285, 60, 15, 0, 2 * Math.PI);
+					context.closePath();
+					context.fillStyle = "#feb10d";
+					context.strokeStyle = "#feb10d";
+					context.fill();
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 281, 46);
+					context.lineTo(1024 - 278, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(1024 - 285, 45);
+					context.lineTo(1024 - 285, 32);
+					context.closePath();
+					context.stroke();
+					context.beginPath();
+					context.moveTo(1024 - 289, 48);
+					context.lineTo(1024 - 292, 32);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "#feb10d";
+					//trójkąt-lewy
+					context.beginPath();
+					context.moveTo(300, 130);
+					context.lineTo(240, 130);
+					context.lineTo(270, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(270, 130);
+					context.lineTo(330, 130);
+					context.lineTo(300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg-lewy
+					context.beginPath();
+					context.moveTo(260, 61);
+					context.lineTo(270, 28);
+					context.lineTo(279, 61);
+					context.lineTo(275, 67);
+					context.lineTo(269, 61);
+					context.lineTo(264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(260 + 30, 61);
+					context.lineTo(270 + 30, 28);
+					context.lineTo(279 + 30, 61);
+					context.lineTo(275 + 30, 67);
+					context.lineTo(269 + 30, 61);
+					context.lineTo(264 + 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					//trójkąt-prawy
+					context.beginPath();
+					context.moveTo(724, 130);
+					context.lineTo(784, 130);
+					context.lineTo(754, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 270, 130);
+					context.lineTo(1024 - 330, 130);
+					context.lineTo(1024 - 300, 25);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "grey";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.strokeStyle = "black";
+					context.stroke();
+
+					//śnieg- prawy
+					context.beginPath();
+					context.moveTo(1024 - 260, 61);
+					context.lineTo(1024 - 270, 28);
+					context.lineTo(1024 - 279, 61);
+					context.lineTo(1024 - 275, 67);
+					context.lineTo(1024 - 269, 61);
+					context.lineTo(1024 - 264, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					context.beginPath();
+					context.moveTo(1024 - 260 - 30, 61);
+					context.lineTo(1024 - 270 - 30, 28);
+					context.lineTo(1024 - 279 - 30, 61);
+					context.lineTo(1024 - 275 - 30, 67);
+					context.lineTo(1024 - 269 - 30, 61);
+					context.lineTo(1024 - 264 - 30, 67);
+					context.closePath();
+					context.stroke();
+					context.fillStyle = "white";
+					context.fill();
+					context.lineWidth = 2;
+					context.lineJoin = "level";
+					context.stroke();
+
+					//tekst
+					context.font = "70px Arial";
+					context.textAlign = "center";
+					context.lineWidth = 3;
+					context.strokeText("Blog górski", canvas.width / 2, 100);
+				}
+
+			}
+		</script>
+	</header>
+
+    <nav>
+		<h2 style="color: blue; background-color:lightgray"> Menu </h2>
+        <ul>
+            <li><a href="1_Index.html" target="_self">Strona główna</a></li>
+            <li><a href="2_Gory_Polski.html" target="_self">Polskie góry</a></li>
+            <li><a href="3_kgp-tabelka.html" target="_self">Korona Gór Polski</a></li>
+            <li><a href="4_Gory_Europy.html" target="_self">Europejskie góry</a></li>
+            <li><a href="5_Gory_Swiata.html" target="_self">Góry Świata</a></li>
+            <li><a href="6_Kontakt.html" target="_self">Formularz kontaktowy</a></li>
+            <li><a href="7_schroniska.html" target="_self">Schroniska</a></li>
+            <li><a href="8_szlaki.html" target="_self">Szlaki długodystansowe</a></li>
+            <li><a href="9_kalkulator.html" target="_self">Kalkulator</a></li>
+            <li><a href="910_ciekawostki.html" target="_self">Górskie ciekawostki</a></li>
+
+
+        </ul>
+
+    </nav>
+	<article>
+		<h2 style="color:darkred; background-color:darkcyan">Kalkulator górski</h2>
+		<p>Poniższy kalkulator pozwala oszcować warunki atmosferyczne na wyższych wysokościach.
+			<br /><br />
+			Wartość temperatury spada o 0,6 stopnia Celsjusza na każde 100 metrów przewyższenia, natomiast ciśnienie maleje o
+			1 hPa na każde 8 metrów w górę.<br /><br /></p>
+		<form id="calculator">
+
+			<h4>Kalkulator warunków atmosferycznych na szczycie</h4>
+			<table>
+				<tr>
+					<td>
+						<input type="text" id="a" class="number" placeholder="Wysokość początkowa" />
+					</td>
+					<td>
+						<input type="text" id="b" class="number" placeholder="Wysokość docelowa" />
+					</td>
+					<td>
+						<input type="text" id="c" class="number" placeholder="Temperatura początkowa" />
+					</td>
+					<td>
+						<input type="text" id="d" class="number" placeholder="Ciśnienie początkowe" />
+					</td>
+				</tr>
+
+
+
+				<tr>
+
+					<td>
+						<button type="button" class="result" onclick="Calculator()">Oblicz</button>
+					</td>
+
+					<td>
+						<input type="text" id="resultT" class="number" placeholder="Temperatura na szczycie" disabled="disabled" />
+					</td>
+
+					<td>
+						<input type="text" id="resultP" class="number" placeholder="Ciśnienie na szczycie" disabled="disabled" />
+					</td>
+					<td>
+						<button type="reset" class="result">Reset</button>
+					</td>
+				</tr>
+
+
+			</table>
+		</form>
+
+		
+			<h4>Przykład</h4>
+
+			<h5>Dane:</h5>
+			<ul>
+				<li>wysokość początkowa=1000 m</li>
+				<li>wysokość docelowa=1800 m</li>
+				<li>temperatura początkowa=20 stC</li>
+				<li>ciśnienie początkowe=1000 hPa</li>
+			</ul>
+			<h5>Obliczenia:</h5>
+			Różnica wysokości wynosi: 1800-1000=800 m<br />
+			Spadek temperatury: 0,6*800/100=4,8 stC	<b>czyli:</b> Temperatura na szczycie: 20-4,8=15,2 stC<br />
+			Spadek ciśnienia: 1*800/8=100 <b>czyli:</b> Ciśnienie na szczycie: 1000-100=900 hPa<br />
+		
+
+
+		<div id="sfch7jphjk93u1a4hb6lfxbu57lub6bc8bc"></div>
+		<script  src="https://counter9.stat.ovh/private/counter.js?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc&down=async" async></script>
+		<noscript>
+			<a href="https://www.freecounterstat.com" title="free website hit counter">
+				<img src="https://counter9.stat.ovh/private/freecounterstat.php?c=h7jphjk93u1a4hb6lfxbu57lub6bc8bc" title="free website hit counter" alt="free website hit counter">
+			</a>
+		</noscript>
+	</article>
+    <aside>   </aside>
+    <footer> <iframe src="KontrolkiJS.html"></iframe></footer>
+
+
+</body>
+</html>

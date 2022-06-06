@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<title>Prezentacja</title>
+	<link href="css/thanks.min.css" rel="stylesheet" />
+	<style>
+		body {
+			background-color: #dfdfdf;
+		}
+
+		.box {
+			display: block;
+			width: 800px;
+			height: 600px;
+			padding: 30px 50px;
+			background-color: white;
+			box-shadow: 0 2px 6px rgba(0,0,0,.1);
+			border: 1px solid rgba(0,0,0,.3);
+			border-radius: 20px;
+			text-shadow: 0 2px 2px rgba(0,0,0,.1);
+			font-family: Arial, sans-serif;
+			font-size: 40px;
+			color: rgb(102,102,102);
+		}
+	</style>
+</head>
+<body>
+	<div id="impress">
+		<div class="step box" data-x="0" data-y="0">
+			<p style="text-align:center"><b>Ciekawostki górskie</b></p>
+			<p>
+				Zapraszam na prezentację, w której przedstawie kilka ciekawostek związanych z górami.
+			</p>
+		</div>
+		<div class="step box" data-x="1500" data-y="1500">
+			<p style="text-align:center">Ciekawostka 1</p>
+			<p>
+				W 1856 T. G. Montgomerie nazwał szczyty Karakorum numerując od K1 do K35.<br />
+				Gdy później zaczęto przypisywać im lokalne nazwy okazało się, że drugi szczyt był tak odosobniony, że tubylcy o nim niewiedzieli i nie miał lokalnej nazwy.<br />
+				Pozostał więc jako K2.
+			</p>
+		</div>
+		<div class="step box" data-x="3000" data-y="3000" data-z="-1000">
+			<p style="text-align:center">Ciekawostka 2</p>
+			<p>
+				Szczyt Chimborazo w Ekwadorze ma 6268 m n.p.m. i jest to punkt na Ziemi najbardziej oddalony od jej środka.<br />
+				Mimo, że jest o wiele niższy od najwyższych gór świata to wygrywa, ponieważ Ziemia nie jest idealną kulą, a ten szczyt znajduje się blisko równika.
+			</p>
+		</div>
+		<div class="step box" data-x="4500" data-y="4500" data-z="-1000">
+			<p style="text-align:center">Ciekawostka 3</p>
+			<p>
+				Najłatwiejszym ośmiotysięcznikiem jest Mount Everest.<br />
+				Mimo, że jest to najwyższa góra świata to wśród tych najwyższych jest najłatwiejsza technicznie.
+			</p>
+		</div>
+		<div class="step box" data-x="6000" data-y="6000" data-z="-1000">
+			<p style="text-align:center">Ciekawostka 4</p>
+			<p>
+				Nazwa "Tatry" wywodzi się najprawdopodobniej od starosłowiańskiego słowa "ter" oznaczającego skałę, urwisko,
+				lub od galicyjskiego "tertaro" oznaczającego wzgórze.
+			</p>
+		</div>
+		<div class="step box" data-x="7500" data-y="7500" data-z="-1000">
+			<p style="text-align:center">Ciekawostka 5</p>
+			<p>
+				Nazwa Gór Świętokrzyskich wzieła się od relikwi Krzyża Świętego, które są przechowywane w klasztorze na Łysej Górze.
+			</p>
+		</div>
+		<div class="step box" data-x="9000" data-y="9000" data-z="-1000"  data-rotate="180" style="text-align:center" >
+			<p style="text-align:center">
+				Bibliografia<br />
+			</p>
+			<p style="text-align:left">
+				<br />[1] https://globalquiz.org/pl/ciekawostki-gory/
+				<br />[2] https://kozicepiwniczanskie.pl/10-ciekawostek-o-tatrach/
+				<br />[3] https://www.e-horyzont.pl/blog/najwyzsza-gora-w-polsce
+			</p>
+		</div>
+		<div class="step box" data-rotate="180" data-x="11000" data-y="9000" data-z="-1100" data-rotate-y="40">
+			<p style="text-align:center"><a href="1_Index.html" target="_self">Powrót do strony głównej</a></p>
+		</div>
+
+
+
+	</div>
+	<script src="impress.js"></script>
+	<script>
+		impress().init();
+	</script>
+
+
+</body>
+
+</html>

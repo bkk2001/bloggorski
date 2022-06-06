@@ -40,7 +40,7 @@
         height: 150px;
         border: 1px solid red;
         /*tło nagłówka całej strony-błękitne niebo*/
-        background-image: url(góry/rozne/prez1.jpg);
+        background-image: url(prez1.jpg);
         background-repeat: repeat-x;
         background-attachment: fixed;
     }
@@ -101,7 +101,7 @@
         height: 150px;
         border: 1px solid red;
         /*tło nagłówka całej strony-błękitne niebo*/
-        background-image: url(góry/rozne/prez1.jpg);
+        background-image: url(prez1.jpg);
         background-repeat: repeat-x;
         background-attachment: fixed;
     }
@@ -162,7 +162,7 @@
         height: 150px;
         border: 1px solid red;
         /*tło nagłówka całej strony-błękitne niebo*/
-        background-image: url(góry/rozne/prez1.jpg);
+        background-image: url(prez1.jpg);
         background-repeat: repeat-x;
         background-attachment: fixed;
     }
